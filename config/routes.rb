@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   
-  get 'start' => 'import#new', as: :start
-  post 'start' => 'import#create', as: :import
+  get 'start' => 'import#start', as: :start
+  post 'import' => 'import#import', as: :import
 
   resources :categories do
     resources :products

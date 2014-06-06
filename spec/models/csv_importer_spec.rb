@@ -19,17 +19,26 @@ describe CsvImporter do
     it "should be able to import products from a local file" do 
       expect do 
         CsvImporter.import "#{Rails.root}/db/csv/products.csv"
-      end.to change{Product.count}.from(0).to(17)
+      end.to change{ Product.count }.from(0).to(17)
     end
 
     it "should return false from a non exist location" do
       expect(CsvImporter.import "#{Rails.root}/db/csv/nonexist.csv").to be_false
     end
 
+    # We assume that this dropbox link will always be available
     it "should be able to import from a remote file" do
       expect do 
         CsvImporter.import "https://dl.dropboxusercontent.com/u/6582068/products.csv"
-      end.to change{Product.count}.from(0).to(17)
+      end.to change{ Product.count }.from(0).to(17)
+    end
+
+    it "should be idempotent if import twice" do
+      CsvImporter.import "https://dl.dropboxusercontent.com/u/6582068/products.csv"
+
+      expect do
+        CsvImporter.import "https://dl.dropboxusercontent.com/u/6582068/products.csv"        
+      end.to_not change { Product.count }
     end
   end
 
