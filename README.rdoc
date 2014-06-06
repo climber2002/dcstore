@@ -1,10 +1,6 @@
 == README
 
-The task is to build a simple online store. The store is for an electronics and appliance retailer and
-
-allows visitors to quickly browse through product categories and the products within those 
-
-categories.
+The task is to build a simple online store. The store is for an electronics and appliance retailer and allows visitors to quickly browse through product categories and the products within those categories.
 
 
-To import the data into development database, just run <tt>rake db:seed</tt>
+To import the data into development database, just run <tt>rake db:seed</tt> after running <tt>rake db:migrate</tt>
