@@ -4,3 +4,7 @@ The task is to build a simple online store. The store is for an electronics and 
 
 
 To import the data into development database, just run <tt>rake db:seed</tt> after running <tt>rake db:migrate</tt>
+
+To run all rspec tests, just run <tt>rspec spec/</tt>
+
+To validate against the feature spec, just run <tt>rspec spec/features</tt>
