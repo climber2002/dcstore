@@ -1,0 +1,22 @@
+<h3>Products in Category <strong><%= @category.name -%></strong></h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Product Id</th>
+      <th>Name</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| -%>
+      <tr>
+        <td><%= product.productid -%></td>
+        <td><%= product.product_name -%></td>
+        <td><%= number_to_currency(product.price) -%></td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>
+
+<%= will_paginate @products -%>

@@ -1,0 +1,16 @@
+<h3>Categories</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| -%>
+      <tr>
+        <td><%= link_to category.name, category_products_path(category) -%></td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>

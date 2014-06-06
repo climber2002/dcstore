@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dcstore</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">DCStore</a>
+    </div>
+    
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <% if controller.controller_name == 'categories' -%>
+          <li class="active">
+        <% else %>
+          <li>
+        <% end %>
+          <%= link_to 'Categories', root_path -%>
+        </li>
+       
+      </ul>
+
+      <ul class="nav navbar-nav">
+        <% if controller.controller_name == 'import' -%>
+          <li class="active">
+        <% else -%>
+          <li>
+        <% end -%>
+          <%= link_to 'Import', start_path -%>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <%= render 'shared/notice' -%>
+          <%= yield %> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
