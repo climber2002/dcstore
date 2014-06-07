@@ -3,7 +3,7 @@ require 'open-uri'
 module CsvImporter
   DEFAULT_LOCATION = "https://dl.dropboxusercontent.com/u/6582068/products.csv"
 
-  class ImportError < Exception; end;
+  class ImportError < StandardError; end;
 
   # Import a csv file from a remote location such as 
   # "https://dl.dropboxusercontent.com/u/6582068/products.csv" or from a
