@@ -1,6 +1,7 @@
 require 'open-uri'
 
 module CsvImporter
+  DEFAULT_LOCATION = "https://dl.dropboxusercontent.com/u/6582068/products.csv"
 
   class ImportError < Exception; end;
 
@@ -14,7 +15,7 @@ module CsvImporter
   # Product Name and Price, and the ProductID should be unique. 
   # The import is idempotent, which means that if the category or the product already
   # exists in database, it will be ignored
-  def self.import csv_location
+  def self.import csv_location = DEFAULT_LOCATION
     csv = SmarterCSV.process(open(csv_location.to_s))
     csv.each do |row|
       category_name = row.delete(:category)
@@ -30,7 +31,9 @@ module CsvImporter
     false
   end
 
-  def self.import! csv_location
+  # The function is the same as import, but it will raise an CsvImporter::ImportError
+  # if the import is failed
+  def self.import! csv_location = DEFAULT_LOCATION
     unless self.import csv_location
       raise ImportError, "Error occured when import from #{csv_location}", caller
     end
