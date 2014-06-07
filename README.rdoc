@@ -2,9 +2,10 @@
 
 The task is to build a simple online store. The store is for an electronics and appliance retailer and allows visitors to quickly browse through product categories and the products within those categories.
 
+The data for the products in the store must be downloaded from a CSV file at https://dl.dropboxusercontent.com/u/6582068/products.csv. When developing initially you may just download the CSV and insert its records into a database, but to complete the challenge an interface must be provided to the user to trigger a download of the CSV and insert its records into a database (or whatever back-end store you decide to use). This operation should be Idempotent (ie; if it is done many times, the result will still be the same).
 
 To import the data into development database, just run <tt>rake db:seed</tt> after running <tt>rake db:migrate</tt>
 
 To run all rspec tests, just run <tt>rspec spec/</tt>
 
-To validate against the feature spec, just run <tt>rspec spec/features</tt>
+To validate against the challange feature spec, just run <tt>rspec spec/features</tt>
